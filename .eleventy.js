@@ -14,7 +14,6 @@ module.exports = function(eleventyConfig) {
   // Copy
   eleventyConfig.addPassthroughCopy('js')
   eleventyConfig.addPassthroughCopy('web_modules')
-  eleventyConfig.addPassthroughCopy('src/videos')
   eleventyConfig.addPassthroughCopy('src/images')
   eleventyConfig.addPassthroughCopy('src/robots.txt')
 
@@ -58,32 +57,9 @@ module.exports = function(eleventyConfig) {
     return minified.code
   })
 
-  // Adding filter add a slot attribute with a name
-  eleventyConfig.addFilter('addSlot', (content, name) => content.replace(/^<\w*/gi, match => `${match} slot="${name}"`))
-
-  function cursosOrdered(collectionApi) {
-    return collectionApi.getFilteredByTag('cursos').sort(function(a, b) {
-      return a.data.order - b.data.order;
-    });
-  }
-
-  // Adding custom sort for cursos
-  eleventyConfig.addCollection('cursosOrdered', cursosOrdered);
-
   eleventyConfig.addFilter('dump', function(obj) {
     return util.inspect(obj, { depth: 10 })
   });
-
-  eleventyConfig.addCollection('formOptions', function(collectionApi) {
-    const cursos = cursosOrdered(collectionApi)
-    const array = cursos.map(curso => {
-      return {
-        title: curso.data.title,
-        options: curso.data.options.map(option => { return { date: option.date, title: option.title } })
-      }
-    })
-    return JSON.stringify(array)
-  })
   
   return {
     dir: {

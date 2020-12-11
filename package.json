@@ -1,7 +1,7 @@
 {
-  "name": "upgrade-hub-web",
-  "version": "1.93.1",
-  "description": "Upgrade Hub website",
+  "name": "masa-madre",
+  "version": "0.0.1",
+  "description": "Masa Madre",
   "private": true,
   "scripts": {
     "clean": "rimraf js public web_modules",
@@ -9,7 +9,7 @@
     "compile:prod_modern": "BABEL_ENV=prod_modern babel src/js --out-dir js",
     "compile:prod_legacy": "BABEL_ENV=prod_legacy babel src/js --out-file js/bundle.js",
     "compile:prod": "npm run compile:prod_modern && npm run compile:prod_legacy",
-    "prebuild": "npm run snowpack && npm run compile:prod",
+    "prebuild": "npm run clean && npm run snowpack && npm run compile:prod",
     "build": "ELEVENTY_ENV=production eleventy",
     "compile:dev_modern": "BABEL_ENV=dev_modern babel --watch src/js --out-dir js",
     "compile:dev_legacy": "BABEL_ENV=dev_legacy babel --watch src/js --out-file js/bundle.js",
@@ -30,7 +30,7 @@
     "web components"
   ],
   "author": "Daniel Vivar <mail@danielvivar.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@babel/cli": "^7.8.4",
@@ -49,9 +49,7 @@
     "html-minifier": "^4.0.0",
     "husky": "^4.2.5",
     "jsdom": "^16.2.2",
-    "lodash-es": "^4.17.15",
     "plop": "^2.6.0",
-    "polychrome": "^4.1.2",
     "rimraf": "^3.0.2",
     "snowpack": "^1.7.0",
     "standard": "*",
@@ -65,18 +63,7 @@
     }
   },
   "dependencies": {
-    "@bundled-es-modules/axios": "^0.18.1",
-    "@lion/button": "0.7.8",
-    "@lion/dialog": "0.7.11",
-    "@lion/form": "0.6.12",
-    "@lion/form-core": "0.2.5",
-    "@lion/input": "0.7.12",
-    "@lion/input-email": "0.8.12",
-    "@lion/select": "0.7.12",
-    "@lion/textarea": "0.7.12",
     "lazysizes": "^5.2.2",
-    "lit-element": "2.3.1",
-    "lit-html": "1.2.1",
     "minireset.css": "github:jdvivar/minireset.css"
   },
   "standard": {

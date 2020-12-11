@@ -3,7 +3,7 @@ module.exports = {
   relativeUrl: function (url) {
     // if (url.startsWith('http')) return url
     // if (this.environment === 'production') {
-    //   return '/upgrade-hub-web'.concat(url)
+    //   return '/subfolder'.concat(url)
     // }
     return url
   },

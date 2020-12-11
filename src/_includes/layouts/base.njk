@@ -1,7 +1,4 @@
 ---
-navbar: true
-footer: true
-includeIcons: true
 minireset: true
 ---
 <!doctype html>
@@ -18,13 +15,6 @@ minireset: true
     {# PERFORMANCE: preconnect to required origins #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-
-    {# PERFORMANCE: preload key requests #}
-    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-video/UhVideo.js') }}" as="script" crossorigin>
-    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-content-row/UhContentRow.js') }}" as="script" crossorigin>
-    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-flex/UhFlex.js') }}" as="script" crossorigin>
-    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-content-text/UhContentText.js') }}" as="script" crossorigin>
-    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-course-cards/UhCourseCards.js') }}" as="script" crossorigin>
 
     {# PERFORMANCE: Adding CSS in a single style tag #}
     {% set css %}
@@ -44,25 +34,7 @@ minireset: true
 
   <body>
 
-    {% if navbar %}
-      {% include 'components/navbar.njk' %}
-    {% endif %}
-
     {{ content | safe }}
-
-    {% if footer %}
-      {% include 'components/footer.njk' %}
-    {% endif %}
-
-    {% if includeIcons %}
-      <div id="icons" style="display: none;">
-        {% for id, src in icons %}
-          <div id="{{ id }}">
-            {{ src | svgContents | safe }}
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
 
     {# PERFORMANCE: Adding JS in a single script tag #}
     {# _includes/js/index.js #}
