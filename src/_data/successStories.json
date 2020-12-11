@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Carmen Mallado",
+    "job_title": "Upgrader UXUI designer bootcamp",
+    "image": "/images/success-stories/carmen_mallado.jpg",
+    "youtube_video": "Le33OqFosf4"
+  },
+  {
+    "name": "Sebastián Jiménez",
+    "job_title": "Upgrader Full Stack bootcamp",
+    "image": "/images/success-stories/sebastian_jimenez.jpg",
+    "youtube_video": "QSEeH3KA2fE"
+  },
+  {
+    "name": "Elena Martín",
+    "job_title": "Upgrader UXUI designer bootcamp",
+    "image": "/images/success-stories/elena_martin.jpg",
+    "youtube_video": "wB5nzOSThl4"
+  },
+  {
+    "name": "Alberto Torres",
+    "job_title": "Upgrader Ciberseguridad bootcamp",
+    "image": "/images/success-stories/alberto_torres.jpg",
+    "youtube_video": "EyWrxfW7MJo"
+  }
+]

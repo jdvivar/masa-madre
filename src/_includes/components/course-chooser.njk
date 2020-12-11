@@ -1,0 +1,14 @@
+<uh-content-row wide>
+  <uh-course-chooser>
+    {% for curso in collections.cursosOrdered %}
+      <uh-course-choice href="{{ project.relativeUrl(curso.url) }}" color="{{ curso.data.primary_color }}">
+        <img slot="image" class="lazyload" alt="{{ curso.data.chooser.title }}" data-src="{{ project.relativeUrl(curso.data.chooser.image) }}" />
+        {% for badge in curso.data.chooser.badges %}
+          <uh-badge slot="badges" color="{{ badge.color }}">{{ badge.text }}</uh-badge>
+        {% endfor %}
+        <p slot="title">{{ curso.data.chooser.title }}</p>
+        <p slot="description">{{ curso.data.description }}</p>
+      </uh-course-choice>
+    {% endfor %}
+  </uh-course-chooser>
+</uh-content-row>

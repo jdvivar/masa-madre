@@ -1,0 +1,16 @@
+{% if skills %}
+<uh-content-row wide>
+  <uh-content-text size="m" weight="bold" color="scarletGum">
+    ¿Qué habilidades vas a entrenar?
+  </uh-content-text>
+  <uh-skills>
+    {% for skill in skills %}
+      <uh-skill>
+        <uh-icon slot="icon" name="triangle" list></uh-icon>
+        <uh-text slot="title" weight="bold">{{ skill.title }}</uh-text>
+        <uh-text slot="description" size="xs">{{ skill.description }}</uh-text>
+      </uh-skill>
+    {% endfor %}
+  </uh-skills>
+</uh-content-row>
+{% endif %}

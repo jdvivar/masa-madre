@@ -1,0 +1,42 @@
+<uh-content-row wide>
+  <uh-course-cards>  
+    {% for curso in collections.cursosOrdered %}
+      <uh-card slot="cursos" href="{{ project.relativeUrl(curso.url) }}">
+        <div slot="title">
+          <uh-text size="xs" weight="600">{{ curso.data.card.title | safe }}</uh-text>
+          <br>
+          <uh-text size="xs">{{ curso.data.card.description | safe }}</uh-text>
+        </div>
+        <uh-icon name="{{ curso.data.logo }}"></uh-icon>
+      </uh-card>
+    {% endfor %}
+    <div slot="modalidades">
+      Nos adaptamos a ti
+      <uh-break size="xs"></uh-break>
+      <style>
+        #options-list-with-icons li {
+          display: flex;
+          align-items: center;
+        }
+      </style>
+      <ul id="options-list-with-icons">
+        <li>
+          <uh-icon name="part-time" list></uh-icon>
+          <div>
+            <uh-text size="xs" weight="bold">Part time</uh-text>
+            <br>
+            <uh-text size="xs">Jornada parcial</uh-text>
+          </div>
+        </li>
+        <li>
+          <uh-icon name="full-time" list></uh-icon>
+          <div>
+            <uh-text size="xs" weight="bold">Full time</uh-text>
+            <br>
+            <uh-text size="xs">Jornada completa</uh-text>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </uh-course-cards>
+</uh-content-row>

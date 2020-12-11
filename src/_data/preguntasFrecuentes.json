@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Preguntas Generales",
+    "questions": [
+      {
+        "question": "¿Se necesita experiencia o conocimientos previos?",
+        "answer": "No se necesita tener conocimientos previos en programación, desarrollo web, diseño o conocimientos en Cibersegurida. Tampoco es necesaria experiencia laboral. En Upgrade estamos convencidos de que cualquier persona proveniente de cualquier ámbito académico, ya sea técnico, científico o humanístico, puede convertirse en un experto, siempre que tenga ganas de dedicarle tiempo y esfuerzo. Se trata de un entrenamiento intensivo y exigente, para el que se requiere motivación, compromiso, esfuerzo y dedicación."
+      },
+      {
+        "question": "¿Realizar un bootcamp tiene sentido si ya se poseen conocimientos?",
+        "answer": "Sí. En nuestros programas no vas a aprender sólo los conocimientos técnicos. Vas a aprender la metodología para programar con eficacia e integrar todas las técnicas, herramientas, tecnologías y lenguajes de forma profesional. Además, adquirirás competencias en metodologías ágiles y soft skills."
+      },
+      {
+        "question": "¿La realización de un bootcamp me garantiza encontrar trabajo al finalizar?",
+        "answer": "En Upgrade hemos creado vínculos de colaboración con empresas demandantes de estos perfiles, lo que genera una permanente demanda de puestos de trabajo. Además, durante todo el bootcamp estarás en contacto continuo con especialistas reconocidos del sector digital, lo que te permitirá crear relaciones laborales para el futuro. Los alumnos que superen con plena dedicación el bootcamp y asimilen todos los conocimientos y metodologías que el curso ofrece tendrán prioridad en los procesos de selección con las empresas demandantes en las jornadas de recruiting."
+      },
+      {
+        "question": "¿Es obligatorio finalizar el Prework?",
+        "answer": "Es obligatorio finalizar nuestro prework antes de comenzar el bootcamp, una herramienta de nivelación para aquellos que no tienen conocimientos o de repaso para los que ya han tenido contacto "
+      },
+      {
+        "question": "¿Es necesario llevar un ordenador?",
+        "answer": "Sí, es necesario disponer de un ordenador o portatil para poder realizar el bootcamp."
+      }
+    ]
+  }
+]

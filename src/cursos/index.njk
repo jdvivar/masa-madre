@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+title: Upgrade Hub - Cursos
+---
+<uh-hero>
+  <uh-content-row slot="content">
+    <uh-text size="xs" color="brightTurquoise" weight="bold">Upgrade your life</uh-text>
+    <uh-break size="xs"></uh-break>
+    <uh-text size="xl" weight="bold" color="white">Quiero cambiar de vida, no sólo de empleo</uh-text>
+  </uh-content-row>
+  <uh-video slot="background" src="{{ project.relativeUrl('/videos/female-hands-typing-on-laptop.mp4') }}"/>
+</uh-hero>
+
+<uh-content-row wide>
+  <uh-flex>
+    <uh-content-text size="l" weight="bold" color="scarletGum">
+      Descubre nuestros bootcamps
+    </uh-content-text>
+    <uh-content-text size="s">
+      <em class="supernova">Cursos intensivos en Desarrollo Web, Diseño UX/UI, Ciberseguridad, Cloud y Ethical Hacking </em> y que las empresas te encuentren a ti. Somos un conseguidor de nuevas oportunidades laborales y por lo tanto, de nuevas formas de vida.
+    </uh-content-text>
+  </uh-flex>
+</uh-content-row>
+
+{% include 'components/formatos.njk' %}
+
+{% include 'components/course-chooser.njk' %}
+
+<uh-content-row wide>
+  <uh-flex>
+    <uh-content-text size="l" weight="bold">
+      ¿Es para mí?
+    </uh-content-text>
+    <uh-content-text size="s">
+      Upgrade Hub te acompaña hasta la cima. Nuestros Bootcamps te capacitarán tanto en conocimientos técnicos como en habilidades sociales. En la era de la transformación digital, muchos puestos del sector tecnólogico quedan vacantes cada año. Nuestros bootcamps <em class="blueRibbon">han sido diseñados</em><em class="persianRose">para cubrir esa demanda</em>.
+    </uh-content-text>
+  </uh-flex>
+</uh-content-row>
+
+<uh-content-row wide>
+  <uh-faq-question color="supernova">
+    <h3 slot="question-title">Quiero reinventarme</h3>
+    <uh-text size="s" slot="question-answer">
+      <p>Quieres dar un giro a tu vida laboral y pasarte al sector tecnológico.</p>
+      <p>Te has propuesto perfeccionar tus competencias y crearte un perfil más atractivo de cara al mercado.</p>
+      <p>Tienes inquietudes en tu carrera profesional y quieres conocer las últimas herramientas del sector tecnológico.</p>
+    </uh-text>
+  </uh-faq-question>
+  <uh-faq-question color="royalBlue">
+    <h3 slot="question-title">Quiero emprender</h3>
+    <uh-text size="s" slot="question-answer">
+      <p>Te dispones a iniciar una aventura personal en el entorno tecnológico.</p>
+      <p>Quieres conocer las últimas tendencias en programación y los métodos de trabajo de las startups y empresas del sector tecnológico.</p>
+      <p>Buscas un entorno dinámico y creativo para intercambiar ideas con otras personas que comparten tus mismas inquietudes.</p>
+    </uh-text>
+  </uh-faq-question>
+  <uh-faq-question color="persianRose">
+    <h3 slot="question-title">Acabo de graduarme</h3>
+    <uh-text size="s" slot="question-answer">
+      <p>Quieres entrar con paso firme en el mercado laboral y asegurarte un futuro profesional en un momento de plena expansión digital.</p>
+      <p>Pretendes empezar a crearte un perfil competitivo basado en la demanda real de las empresas y quieres conocer las necesidades específicas del sector tecnológico.</p>
+      <p>Buscas establecer un primer contacto con profesionales en activo.</p>
+    </uh-text>
+  </uh-faq-question>
+  <uh-faq-question color="blueRibbon">
+    <h3 slot="question-title">Quiero desarrollarme profesionalmente</h3>
+    <uh-text size="s" slot="question-answer">
+      <p>Eres inquieto, aspiras a mejorar en tu trabajo y quieres sacar el máximo potencial a tu talento.</p>
+      <p>Sientes que necesitas estar al día de lo que está pasando ahí fuera y no quieres quedarte atrás.</p>
+      <p>Tu ambición es poder abarcar cualquier tipo de proyecto web y dar un salto cualitativo en tu carrera profesional.</p>
+    </uh-text>
+  </uh-faq-question>
+</uh-content-row>
+
+{% include 'components/conocimientos-previos.njk' %}
+
+<uh-hero full no-gradient>
+  <uh-content-row wide slot="content">
+    <uh-content-text size="l" color="white" weight="bold" >
+      ¿Cómo es un día en Upgrade Hub?
+    </uh-content-text>
+    <uh-content-text size="s" color="white">
+      Descubre de la mano de nuestros alumnos, mentores y equipo cómo es un día en nuestro hub de entrenamiento digital
+    </uh-content-text>
+    <uh-button color="translucent">Descubrir</uh-button>
+  </uh-content-row>
+  <uh-video slot="background" loading="lazy" src="{{ project.relativeUrl('/videos/white-board.mp4')}}"/>
+</uh-hero>
+
+{% include 'components/method.njk' %}
+
+<uh-content-row fluid background="persianRose" id="contacto">
+  <uh-break></uh-break>
+  <uh-flex align-center from="xl">
+    <uh-content-text>
+      <uh-content-text size="l" weight="bold" color="white">
+        ¿Quieres saber más?
+      </uh-content-text>
+      <uh-content-text size="s" color="white">
+        En Upgrade nos comprometemos con tu proyección de futuro. Nuestros Bootcamps, 100% profesionales, son entrenamientos intensivos que te capacitan tanto en conocimientos técnicos como en habilidades sociales.
+      </uh-content-text>
+    </uh-content-text>
+    <uh-contact-form
+        href-legal="{{ project.relativeUrl('/legal')}}"
+        href-privacidad="{{ project.relativeUrl('/privacidad')}}"
+        options="{{ collections.formOptions }}"></uh-contact-form>
+  </uh-flex>
+</uh-content-row>

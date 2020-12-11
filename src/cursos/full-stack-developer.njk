@@ -1,0 +1,181 @@
+---
+layout: layouts/curso.njk
+title: Full Stack developer
+tags: cursos
+order: 1
+logo: full-stack-geometric-logo
+card:
+  title: Full Stack developer
+  description: 27 de julio
+chooser:
+  title: Full Stack developer
+  image: /images/chooser-images/fullstack-img-chooser.jpg
+menu:
+  title: Full Stack developer
+  image: fullstack-menu.jpg
+options:
+  - date: 3 septiembre 2020
+    color: royalBlue
+    title: Part Time Bootcamp Full Stack
+    features:
+      1:
+        - text: Part time
+          bold: true
+        - text: Jornada partida
+          bold: false
+      2:
+        - text: 320
+          bold: true
+        - text: Horas lectivas
+          bold: false
+      3:
+        - text: Martes y jueves
+          bold: true
+        - text: de 18:30h a 22h
+          bold: false
+        - text: Sábados
+          bold: true
+        - text: de 8:30h a 15h
+          bold: false
+    badge: ÚLTIMAS PLAZAS
+    href: '/inscripcion'
+    price: 5.900€*
+  - date: 27 julio 2020
+    color: persianRose
+    title: Full Time Bootcamp Full Stack
+    features:
+      1:
+        - text: Full time
+          bold: true
+        - text: Jornada completa
+          bold: false
+      2:
+        - text: 320
+          bold: true
+        - text: Horas lectivas
+          bold: false
+      3:
+        - text: Lunes a viernes
+          bold: true
+        - text: de 9h a 18h
+          bold: false
+    href: '/inscripcion'
+    price: 5.900€*
+hero:
+  title:
+    color: Full Stack
+    rest: Developer
+  background: fullstack-bg.jpg
+  svg: /src/images/fullstack-hero.svg
+description: El desarrollador web en todas sus facetas, desde el diseño e interacción de páginas web (Front End), hasta la programación y la gestión de datos de la web (Back End).
+primary_color: blueRibbon
+skills:
+  - title: Programación Actualizada
+    description: Aprenderás a desarrollar una web moderna desde la perspectiva Front End a través de la experiencia de expertos de la industria que se encuentran trabajando en activo.
+  - title: Técnicas Front End
+    description: Controloarás las técnicas de Front End a través de diferentes herramientas profesionales como frameworks, IDEs, gestores de paquetes, control de versiones, Third Party APIs y la construcción de una Progressive Web App.
+  - title: Técnicas Back End
+    description: Tangibilizarás los conceptos de una arquitectura de información, diseñando flujos de interacción. Crearás APIs, servicios profesionales, aplicaciones del lado del servidor...
+successStories:
+  - name: Daniel Peña
+    job_title: Upgrader Full Stack bootcamp
+    image: /images/success-stories/daniel_pena.jpg
+    youtube_video: FR2m0PY-LdU
+  - name: Sebastián Jiménez
+    job_title: Upgrader Full Stack bootcamp
+    image: /images/success-stories/sebastian_jimenez.jpg
+    youtube_video: QSEeH3KA2fE
+faqs:
+  - question_title: ¿Qué beneficios me aporta aprender desarrollo web Full Stack?
+    question_answer: Integrarte en las demandas que el mundo laboral de hoy necesita. Si dominas la programación web se multiplicarán tus oportunidades. La demanda de desarrolladores no para de crecer y apostar por estar ahí te sitúa en una posición ventajosa.
+  - question_title: ¿Se necesita experiencia o conocimientos previos?
+    question_answer: Para la realización del Full Stack Developer Bootcamp no se necesita tener conocimientos previos en programación o desarrollo web. Tampoco es necesaria experiencia laboral. En Upgrade estamos convencidos de que cualquier persona proveniente de cualquier ámbito académico, ya sea técnico, científico o humanístico, puede convertirse en un experto en Full Stack, siempre que tenga ganas de dedicarle tiempo y esfuerzo. 
+  - question_title: ¿Este curso tiene sentido si se tienen conocimientos de programación?                
+    question_answer: Sí. En nuestro programa no vas a aprender sólo los conocimientos técnicos de programación. Vas a aprender la metodología para programar con eficacia e integrar todas las técnicas, herramientas, tecnologías y lenguajes de forma profesional. Además, adquirirás competencias en metodologías ágiles y soft skills.
+form:
+  color: royalBlue
+  title: ¿Quieres saber más?
+  description: En Upgrade nos comprometemos con tu proyección de futuro. Nuestros Bootcamps, 100% profesionales, son entrenamientos intensivos que te capacitan tanto en conocimientos técnicos como en habilidades sociales.
+---
+
+<uh-content-row wide>
+  <uh-flex>
+    <div>
+      <uh-content-text size="m" weight="bold" color="scarletGum">
+        ¿Qué es Full Stack?
+      </uh-content-text>
+      <uh-content-text size="s">
+        Full Stack es el desarrollo web en todas sus facetas, desde el diseño e interacción de páginas web (Front End), hasta la programación y la gestión de datos de la web (Back End).
+      </uh-content-text>
+    </div>
+    <img alt="Alumno sonriendo" src="{{ project.relativeUrl('/images/05-bootcamp.jpg') }}" />
+  </uh-flex>
+</uh-content-row>
+
+{% include 'components/conocimientos-previos.njk' %}
+
+{% include 'components/skills.njk' %}
+
+<uh-hero full no-gradient>
+  <uh-content-row wide slot="content">
+    <uh-content-text size="l" color="white" weight="bold" >
+      ¿Por qué el desarrollo web puede cambiarte la vida?
+    </uh-content-text>
+    <uh-content-text size="s" color="white">
+      Como desarrollador, te situarás en una posición privilegiada dentro del mercado laboral. Podrás trabajar a distancia desde donde quieras y formarás parte de uno de los sectores mejor remunerados.
+    </uh-content-text>
+    <uh-button color="translucent">Ver vídeo</uh-button>
+  </uh-content-row>
+  <img slot="background" class="lazyload" alt="mentor hablando" style="filter: brightness(50%)" data-src="{{ project.relativeUrl('/images/fsd-bg.jpg')}}"/>
+</uh-hero>
+
+{% include 'components/method.njk' %}
+
+{% include 'components/success-stories.njk' %}
+
+<uh-content-row wide>
+  <uh-flex>
+    <uh-content-text size="m" weight="bold" color="scarletGum">
+      ¿Cuáles son las fases del curso?
+      <uh-break></uh-break>
+      <uh-text size="s" non-responsive><uh-button color="royalBlue">Descargar programa</uh-button></uh-text>
+    </uh-content-text>
+    <uh-content-text size="s">
+      Con el Bootcamp de Full Stack te convertirás en un buen profesional no sólo desde el punto de vista técnico, sino a todos los niveles, desarrollando destrezas, habilidades y buenas prácticas para empezar a sumar desde el minuto uno en tu entorno laboral.
+    </uh-content-text>
+  </uh-flex>
+</uh-content-row>
+
+<uh-content-row wide>
+  <uh-flex>
+    <div>
+      <uh-content-text size="m" weight="bold" color="scarletGum">
+        ¿Qué herramientas voy a utilizar?
+      </uh-content-text>
+      <uh-content-text size="xs">
+        Al finalizar el Bootcamp, habrás adquirido las habilidades necesarias para controlar la base de la programación, desde los conocimientos core hasta el uso de los frameworks más extendidos.
+      </uh-content-text>
+    </div>
+    <uh-icons-grid>
+      <img class="lazyload" alt="html" data-src="/images/logo-images/html_logo.png"/>
+      <img class="lazyload" alt="css" data-src="/images/logo-images/css_logo.png"/>
+      <img class="lazyload" alt="javascript" data-src="/images/logo-images/javascript_logo.png"/>
+      <img class="lazyload" alt="nodejs" data-src="/images/logo-images/nodejs_logo.png"/>
+      <img class="lazyload" alt="react" data-src="/images/logo-images/react_logo.png"/>
+      <img class="lazyload" alt="angular" data-src="/images/logo-images/angular_logo.png"/>
+      <!-- {{ '/src/icons/indra-logo.svg' | svgContents | safe }} -->
+    </uh-icons-grid>
+  </uh-flex>
+</uh-content-row>
+
+{# 
+<uh-hero>
+  <uh-content-row fluid slot="content">
+    <uh-text size="xl" weight="bold" color="white">{{ title }}</uh-text>
+  </uh-content-row>
+  <uh-video slot="background" src="{{ project.relativeUrl('/videos/freelancer-working-outdoors.mp4') }}"/>
+</uh-hero>
+
+<uh-content-row>
+  <h2>{{ title }}</h2>
+</uh-content-row> #}

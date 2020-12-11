@@ -1,0 +1,10 @@
+<uh-success-stories>
+  {% for story in successStories %}
+    <uh-success-story youtube-video="{{ story.youtube_video }}">
+      <p slot="name">{{ story.name }}</p>
+      <p slot="job-title">{{ story.job_title }}</p>
+      <img slot="image" class="lazyload" alt="{{ story.name }}" data-src="{{ project.relativeUrl(story.image) }}"/>
+      <uh-button color="translucent">Ver vídeo</uh-button>
+    </uh-success-story>
+  {% endfor %}
+</uh-success-stories>

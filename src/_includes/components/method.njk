@@ -1,0 +1,21 @@
+<uh-content-row>
+  <uh-content-text center size="l" weight="bold">
+    <uh-icon name="horns-hand"></uh-icon> Elige la mejor opción
+  </uh-content-text>
+  <uh-content-text center non-responsive>
+    <uh-icon name="hand"></uh-icon><a href="#"><uh-button color="royalBlue">Quiero saber más</uh-button></a>
+  </uh-content-text>
+</uh-content-row>
+<uh-content-row wide>
+  <uh-method>
+    {% for step in methodSteps %}
+      <div class="step" slot="step">
+        <uh-text size="xl" weight="bold">{{ step.number }}</uh-text>
+        <uh-break size="xs"></uh-break>
+        <uh-text size="m" weight="bold">{{ step.title }}</uh-text>
+        <uh-break size="s"></uh-break>
+        <uh-text class="description" size="xs">{{ step.description }}</uh-text>
+      </div>
+    {% endfor %}
+  </uh-method>
+</uh-content-row>

@@ -1,0 +1,15 @@
+import { LitElement, html } from 'lit-element'
+
+export class {{pascalCase name}} extends LitElement {
+  static get is () {
+    return '{{dashCase name}}'
+  }
+
+  render () {
+    return html`
+      <div>
+        {{dashCase name}}
+      </div>
+    `
+  }
+}

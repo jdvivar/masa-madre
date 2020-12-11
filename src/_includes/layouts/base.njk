@@ -1,0 +1,86 @@
+---
+navbar: true
+footer: true
+includeIcons: true
+minireset: true
+---
+<!doctype html>
+<!-- version {{ project.version }}, built at {{ project.timestamp }} -->
+<html lang="es-ES">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fafafa">
+
+    {# PERFORMANCE: preconnect to required origins #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    {# PERFORMANCE: preload key requests #}
+    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-video/UhVideo.js') }}" as="script" crossorigin>
+    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-content-row/UhContentRow.js') }}" as="script" crossorigin>
+    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-flex/UhFlex.js') }}" as="script" crossorigin>
+    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-content-text/UhContentText.js') }}" as="script" crossorigin>
+    <link rel="preload" href="{{ project.relativeUrl('/js/components/uh-course-cards/UhCourseCards.js') }}" as="script" crossorigin>
+
+    {# PERFORMANCE: Adding CSS in a single style tag #}
+    {% set css %}
+      {% if minireset %}
+        {% include "../../../node_modules/minireset.css/minireset.css" %}
+      {% endif %}
+      {% include "../../css/main.css" %}
+    {% endset %}
+    <style>
+      {% if project.environment == "production" %}
+        {{ css | cssmin | safe }}
+      {% else %}
+        {{ css | safe }}
+      {% endif %}
+    </style>
+  </head>
+
+  <body>
+
+    {% if navbar %}
+      {% include 'components/navbar.njk' %}
+    {% endif %}
+
+    {{ content | safe }}
+
+    {% if footer %}
+      {% include 'components/footer.njk' %}
+    {% endif %}
+
+    {% if includeIcons %}
+      <div id="icons" style="display: none;">
+        {% for id, src in icons %}
+          <div id="{{ id }}">
+            {{ src | svgContents | safe }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {# PERFORMANCE: Adding JS in a single script tag #}
+    {# _includes/js/index.js #}
+    {% set js %}
+      {% include "js/index.js" %}
+    {% endset %}
+    <script>
+      {% if project.environment == "production" %}
+        {{ js | jsmin | safe }}
+      {% else %}
+        {{ js | safe }}
+      {% endif %}
+    </script>
+
+    {# lazysizes #}
+    <script type="module" src="{{ project.relativeUrl('/web_modules/lazysizes/lazysizes.min.js') }}" async></script>
+
+    <script nomodule src="./js/bundle.js"></script>
+    {% include 'components/no-script.njk' %}
+  </body>
+</html>

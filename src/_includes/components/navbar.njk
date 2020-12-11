@@ -1,0 +1,28 @@
+<div id="js-uh-nav-anchor"></div>
+<uh-nav>
+  <uh-logo href="{{ project.relativeUrl('/') }}"></uh-logo>
+  <a href="{{ project.relativeUrl('/cursos') }}" has-submenu="cursos-submenu">Bootcamps</a>
+  <uh-nav-submenu id="cursos-submenu">
+    {% for curso in collections.cursosOrdered %}
+      <a href="{{ project.relativeUrl(curso.url) }}">
+        <img alt="{{ curso.data.menu.title }}" src="{{ project.relativeUrl('/images/' + curso.data.menu.image) }}" />
+        {{ curso.data.menu.title }}
+      </a>
+    {% endfor %}
+  </uh-nav-submenu>
+  <a href="{{ project.relativeUrl('/empresas') }}">Empresas</a>
+  <a href="{{ project.relativeUrl('/escuela') }}">El Hub</a>
+  <a href="{{ project.relativeUrl('/contacto') }}">Contacto</a>
+  <uh-llamanos class="nav-button shown-menu-desktop">
+    <uh-button slot="invoker" color="blueRibbon" id="te-llamamos">
+      Te llamamos
+    </uh-button>
+  </uh-llamanos>
+  <uh-button class="shown-menu-mobile nav-button" color="mountainMeadow" id="whatsapp">
+    <uh-icon name="whatsapp"></uh-icon>
+    WhatsApp
+  </uh-button>
+  <uh-button class="nav-button" color="persianRose" href="{{ project.relativeUrl('/inscripcion')}}">
+    Solicitar admisión
+  </uh-button>
+</uh-nav>

@@ -1,0 +1,5 @@
+/node_modules
+/web_modules
+/public
+/js
+.DS_Store

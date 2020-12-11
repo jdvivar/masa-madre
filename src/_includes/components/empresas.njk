@@ -1,0 +1,11 @@
+<uh-content-row wide background="whisper">
+  <uh-empresas>
+    {% for empresa in empresas %}
+      {% if empresa.image %}
+        <img class="lazyload" alt="{{ empresa.title }}" data-src="{{ project.relativeUrl(empresa.image) }}"/>
+      {% elif empresa.svg %}
+        {{ empresa.svg | svgContents | safe }}
+      {% endif %}
+    {% endfor %}
+  </uh-empresas>
+</uh-content-row>
