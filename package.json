@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "lazysizes": "^5.2.2",
+    "lit-element": "^2.4.0",
     "minireset.css": "github:jdvivar/minireset.css"
   },
   "standard": {
