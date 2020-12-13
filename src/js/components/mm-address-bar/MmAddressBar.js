@@ -8,21 +8,18 @@ export class MmAddressBar extends LitElement {
   static get styles () {
     return css`
       .wrapper {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
+        // padding: 10px;
       }
 
       input {
-        width: 100%;
+        // width: 100%;
         border-radius: 5px;
         border: 0px solid lightgrey;
         height: 50px;
         padding: 10px;
         font-size: 18px;
       }
+
     `
   }
 

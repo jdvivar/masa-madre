@@ -7,14 +7,21 @@ export class MmMap extends LitElement {
 
   static get styles () {
     return css`
-      div {
+      .address-bar-wrapper {
+        position: absolute;
+        top: 0;
         width: 100%;
+      }
+
+      .map-wrapper {
         height: 100%;
+        width: 100%;
+        background: lightgrey;
       }
 
       img {
-        width: 100%;
         height: 100%;
+        width: 100%;
         object-fit: cover;
       }
     `
@@ -22,8 +29,11 @@ export class MmMap extends LitElement {
 
   render () {
     return html`
-      <div>
-        <img src="https://placekitten.com/300/300">
+      <div class="address-bar-wrapper">
+        <slot name="address-bar"></slot>
+      </div>
+      <div class="map-wrapper">
+        <img src="https://placekitten.com/600/600">
       </div>
     `
   }

@@ -15,8 +15,8 @@ export class MmList extends LitElement {
     return html`
       <div class="wrapper">
         <mm-list-item>masa madre 1</mm-list-item>
-        <mm-list-item>masa madre 2</mm-list-item>
-        <mm-list-item>masa madre</mm-list-item>
+        <mm-list-item>masa madre 1</mm-list-item>
+        <mm-list-item>masa madre 1</mm-list-item>
       </div>
     `
   }
