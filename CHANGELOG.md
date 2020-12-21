@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/jdvivar/masa-madre/compare/v0.0.2...v0.0.3) (2020-12-21)
+
+
+### Features
+
+* styles for map and address bar (hidden) ([96a9029](https://github.com/jdvivar/masa-madre/commit/96a9029ca9e7d0004f1c231c19001879394d6822))
+* using flex layout ([251d694](https://github.com/jdvivar/masa-madre/commit/251d694f5fe803cfe731c6fe3013dea91cae1fe2))
+
+
+### Bug Fixes
+
+* add lit-element ([6a3955b](https://github.com/jdvivar/masa-madre/commit/6a3955b328c3e499c0ea2d281b004d7686887bc7))
+
+
+### docs
+
+* new badges ([52f145f](https://github.com/jdvivar/masa-madre/commit/52f145fac688c1438a9ddff461c2a14ef546fa61))
+
 ### 0.0.2 (2020-12-12)
 
 
