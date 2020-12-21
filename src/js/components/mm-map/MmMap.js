@@ -7,6 +7,12 @@ export class MmMap extends LitElement {
 
   static get styles () {
     return css`
+      :host {
+        position: relative;
+        display: block;
+        height: 100%;
+      }
+
       .address-bar-wrapper {
         position: absolute;
         top: 0;
@@ -33,7 +39,7 @@ export class MmMap extends LitElement {
         <slot name="address-bar"></slot>
       </div>
       <div class="map-wrapper">
-        <img src="https://placekitten.com/600/600">
+        <img src="https://placekitten.com/300/300">
       </div>
     `
   }

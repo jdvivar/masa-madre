@@ -8,25 +8,42 @@ export class MmAddressBar extends LitElement {
   static get styles () {
     return css`
       .wrapper {
-        // padding: 10px;
+        padding: 20px;
+        display: flex;
+        justify-content: flex-end;
       }
 
       input {
-        // width: 100%;
-        border-radius: 5px;
-        border: 0px solid lightgrey;
+        border-radius: 100px;
+        border: 3px solid transparent;
         height: 50px;
         padding: 10px;
         font-size: 18px;
+        outline: none;
+        transition: all 0.3s ease;
+        flex-grow: 1;
       }
 
+      input:focus,
+      input:hover {
+        border: 3px solid lightgrey;
+      }
     `
   }
+
+  // render () {
+  //   return html`
+  //     <div class="wrapper">
+  //       <input type="search" id="site-search" name="q" aria-label="Search through site content" autocomplete="off">
+  //       <button>Hola</button>
+  //     </div>
+  //   `
+  // }
 
   render () {
     return html`
       <div class="wrapper">
-        <input type="search" id="site-search" name="q" aria-label="Search through site content" autocomplete="off">
+        <button>Localízame</button>
       </div>
     `
   }
