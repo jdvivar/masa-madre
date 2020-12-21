@@ -4,54 +4,39 @@
   "description": "Masa Madre",
   "private": true,
   "scripts": {
-    "clean": "rimraf js public web_modules",
+    "clean": "rimraf public",
     "release": "standard-version && git push --follow-tags",
-    "compile:prod_modern": "BABEL_ENV=prod_modern babel src/js --out-dir js",
-    "compile:prod_legacy": "BABEL_ENV=prod_legacy babel src/js --out-file js/bundle.js",
-    "compile:prod": "npm run compile:prod_modern && npm run compile:prod_legacy",
-    "prebuild": "npm run clean && npm run snowpack && npm run compile:prod",
+    "prebuild": "npm run clean && npm run compile:prod",
     "build": "ELEVENTY_ENV=production eleventy",
-    "compile:dev_modern": "BABEL_ENV=dev_modern babel --watch src/js --out-dir js",
-    "compile:dev_legacy": "BABEL_ENV=dev_legacy babel --watch src/js --out-file js/bundle.js",
-    "compile:dev:once": "BABEL_ENV=dev_modern babel src/js --out-dir js",
-    "compile:dev": "concurrently npm:compile:dev_*",
-    "prestart": "npm run clean && npm run snowpack && npm run compile:dev:once",
-    "start": "ELEVENTY_ENV=development concurrently \"eleventy --serve\" npm:compile:dev",
-    "prepare": "npm run snowpack",
-    "snowpack": "snowpack --include \"src/**/*.js\" --optimize",
+    "prestart": "npm run clean && npm run compile",
+    "start": "ELEVENTY_ENV=development eleventy --serve",
+    "prepare": "npm run compile",
+    "compile": "esbuild src/js/bundle.js --bundle --outfile=public/bundle.js --sourcemap",
+    "compile:prod": "esbuild src/js/bundle.js --bundle --outfile=public/bundle.js --minify --target=es6",
     "lint": "standard",
     "lint:fix": "standard --fix",
     "generate:wc": "plop web component"
   },
   "keywords": [
     "eleventy",
-    "babel",
-    "snowpack",
     "web components"
   ],
   "author": "Daniel Vivar <mail@danielvivar.com>",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-decorators": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-modules": "^0.1.3",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.1.0",
     "clean-css": "^4.2.3",
     "concurrently": "^5.2.0",
-    "eleventy-plugin-add-web-component-definitions": "^1.1.1",
     "eleventy-plugin-svg-contents": "^0.5.1",
+    "esbuild": "^0.8.26",
     "html-minifier": "^4.0.0",
     "husky": "^4.2.5",
     "jsdom": "^16.2.2",
     "plop": "^2.6.0",
     "rimraf": "^3.0.2",
-    "snowpack": "^1.7.0",
     "standard": "*",
     "standard-version": "^7.1.0",
     "terser": "^4.6.12"
@@ -63,16 +48,10 @@
     }
   },
   "dependencies": {
-    "lazysizes": "^5.2.2",
     "lit-element": "^2.4.0",
     "minireset.css": "github:jdvivar/minireset.css"
   },
   "standard": {
     "parser": "babel-eslint"
-  },
-  "snowpack": {
-    "webDependencies": [
-      "lazysizes/lazysizes.min.js"
-    ]
   }
 }

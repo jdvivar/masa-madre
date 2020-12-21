@@ -12,10 +12,6 @@ minireset: true
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {# <meta name="theme-color" content="#fafafa"> #}
 
-    {# PERFORMANCE: preconnect to required origins #}
-    {# <link rel="preconnect" href="https://fonts.googleapis.com"> #}
-    {# <link rel="preconnect" href="https://fonts.gstatic.com"> #}
-
     {# PERFORMANCE: Adding CSS in a single style tag #}
     {% set css %}
       {% if minireset %}
@@ -49,10 +45,7 @@ minireset: true
       {% endif %}
     </script>
 
-    {# lazysizes #}
-    <script type="module" src="{{ project.relativeUrl('/web_modules/lazysizes/lazysizes.min.js') }}" async></script>
-
-    <script nomodule src="./js/bundle.js"></script>
+    <script src="./bundle.js"></script>
     {% include 'components/no-script.njk' %}
   </body>
 </html>

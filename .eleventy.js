@@ -4,7 +4,6 @@ const CleanCSS = require('clean-css')
 const Terser = require('terser')
 const svgContents = require('eleventy-plugin-svg-contents')
 const util = require('util')
-const addWebComponentDefinitions = require('eleventy-plugin-add-web-component-definitions')
 
 module.exports = function(eleventyConfig) {
   // Watch
@@ -12,9 +11,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addWatchTarget('src/css')
 
   // Copy
-  eleventyConfig.addPassthroughCopy('js')
-  eleventyConfig.addPassthroughCopy('web_modules')
-  eleventyConfig.addPassthroughCopy('src/images')
   eleventyConfig.addPassthroughCopy('src/robots.txt')
 
   // Embed SVGs
@@ -32,15 +28,6 @@ module.exports = function(eleventyConfig) {
     }
     return content
   })
-
-  eleventyConfig.addPlugin(addWebComponentDefinitions, {
-    // path: tag => project.environment === 'production'
-    //     ? `/upgrade-hub-web/js/components/${tag}/${tag}.js`
-    //     : `/js/components/${tag}/${tag}.js`
-    // }
-    path: tag => `/js/components/${tag}/${tag}.js`
-    }
-  )
 
   // Adding filter to minify CSS
   eleventyConfig.addFilter('cssmin', function(code) {
