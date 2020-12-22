@@ -49,6 +49,7 @@
     }
   },
   "dependencies": {
+    "@lion/dialog": "^0.9.13",
     "lit-element": "^2.4.0",
     "minireset.css": "github:jdvivar/minireset.css"
   },
