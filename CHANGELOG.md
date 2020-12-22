@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/jdvivar/masa-madre/compare/v0.0.3...v0.0.4) (2020-12-22)
+
+
+### Features
+
+* working on geolocation notice (WIP) ([fc1e03f](https://github.com/jdvivar/masa-madre/commit/fc1e03f852fa05c86d9351cf7afe5b3a2caa01fc))
+
 ### [0.0.3](https://github.com/jdvivar/masa-madre/compare/v0.0.2...v0.0.3) (2020-12-21)
 
 
