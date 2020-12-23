@@ -4,7 +4,7 @@ import { breakpoints } from '../../utils/values.styles.js'
 import '../mm-map/mm-map.js'
 import '../mm-address-bar/mm-address-bar.js'
 import '../mm-list/mm-list.js'
-import '../mm-geolocation-notice/mm-geolocation-notice.js'
+import '../mm-geolocation/mm-geolocation.js'
 
 export class MmApp extends LitElement {
   static get is () {
@@ -58,7 +58,7 @@ export class MmApp extends LitElement {
 
   render () {
     return html`
-      <mm-geolocation-notice></mm-geolocation-notice>
+      <mm-geolocation></mm-geolocation>
       <div class="wrapper">
         <div class="map-wrapper">
           <mm-map>

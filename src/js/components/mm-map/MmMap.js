@@ -39,7 +39,7 @@ export class MmMap extends LitElement {
         <slot name="address-bar"></slot>
       </div>
       <div class="map-wrapper">
-        <img src="https://placekitten.com/300/300">
+        <img src="https://placekitten.com/1000/1000">
       </div>
     `
   }
