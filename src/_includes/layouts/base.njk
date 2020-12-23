@@ -33,7 +33,6 @@ minireset: true
     {{ content | safe }}
 
     {# PERFORMANCE: Adding JS in a single script tag #}
-    {# _includes/js/index.js #}
     {% set js %}
       {% include "js/index.js" %}
     {% endset %}
