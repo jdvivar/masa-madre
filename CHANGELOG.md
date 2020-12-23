@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/jdvivar/masa-madre/compare/v0.0.5...v0.0.6) (2020-12-23)
+
+
+### Features
+
+* adding about page ([88f83a0](https://github.com/jdvivar/masa-madre/commit/88f83a004ba80d28f296611c9135c0c7d3f8112a))
+
 ### [0.0.5](https://github.com/jdvivar/masa-madre/compare/v0.0.4...v0.0.5) (2020-12-23)
 
 
