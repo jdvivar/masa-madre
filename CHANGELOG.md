@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/jdvivar/masa-madre/compare/v0.0.4...v0.0.5) (2020-12-23)
+
+
+### Bug Fixes
+
+* removing lion/dialog ([3d28fc1](https://github.com/jdvivar/masa-madre/commit/3d28fc118f5c54ac2ac8f6e64743a7047eddef34))
+
 ### [0.0.4](https://github.com/jdvivar/masa-madre/compare/v0.0.3...v0.0.4) (2020-12-22)
 
 
