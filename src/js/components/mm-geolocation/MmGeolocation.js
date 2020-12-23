@@ -105,6 +105,8 @@ export class MmGeolocation extends LitElement {
           <button @click=${this.handleStartGeolocation}>
             Vale
           </button>
+          <hr>
+          Esto está no en beta... sino en alpha! <a href="/sobre-el-proyecto">Sobre el proyecto</a>
         </div>
       </div>
     `
