@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/jdvivar/masa-madre/compare/v0.0.6...v0.0.7) (2020-12-25)
+
+
+### Features
+
+* adding first map ([6bfc9e1](https://github.com/jdvivar/masa-madre/commit/6bfc9e1f5304ae3f21171a38ef884b1a44f9ea43))
+
 ### [0.0.6](https://github.com/jdvivar/masa-madre/compare/v0.0.5...v0.0.6) (2020-12-23)
 
 
