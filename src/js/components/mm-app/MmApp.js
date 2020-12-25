@@ -11,6 +11,12 @@ export class MmApp extends LitElement {
     return 'mm-app'
   }
 
+  static get properties () {
+    return {
+      position: { type: window.GeolocationPosition }
+    }
+  }
+
   static get styles () {
     return css`
       .wrapper {
@@ -56,12 +62,16 @@ export class MmApp extends LitElement {
     `
   }
 
+  handleNewPosition ({ detail: { position } }) {
+    this.position = position
+  }
+
   render () {
     return html`
-      <mm-geolocation></mm-geolocation>
+      <mm-geolocation @new-position=${this.handleNewPosition}></mm-geolocation>
       <div class="wrapper">
         <div class="map-wrapper">
-          <mm-map>
+          <mm-map .position=${this.position}>
             <mm-address-bar slot="address-bar"></mm-address-bar>
           </mm-map>
         </div>

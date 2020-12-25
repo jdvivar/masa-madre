@@ -50,7 +50,8 @@
   },
   "dependencies": {
     "lit-element": "^2.4.0",
-    "minireset.css": "github:jdvivar/minireset.css"
+    "minireset.css": "github:jdvivar/minireset.css",
+    "ol": "^6.4.3"
   },
   "standard": {
     "parser": "babel-eslint"

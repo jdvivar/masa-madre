@@ -8,7 +8,7 @@ export class MmGeolocation extends LitElement {
 
   static get properties () {
     return {
-      position: Object,
+      position: window.GeolocationPosition,
       loading: {
         type: Boolean
       },
@@ -41,6 +41,9 @@ export class MmGeolocation extends LitElement {
   handleGeolocationSuccess (position) {
     console.log(position)
     this.position = position
+    this.dispatchEvent(new window.CustomEvent('new-position', {
+      detail: { position }
+    }))
   }
 
   handleGeolocationFailure () {
