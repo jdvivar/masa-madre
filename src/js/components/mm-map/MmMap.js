@@ -7,6 +7,12 @@ import { Tile } from 'ol/layer'
 import { OSM } from 'ol/source'
 import { fromLonLat } from 'ol/proj'
 
+// TODO
+// Still lacking support for css-in-js
+// More at: https://github.com/evanw/esbuild/issues/20
+// For now this will just output a css file together with the bundle
+// with name bundle.css
+import 'ol/ol.css'
 export class MmMap extends LitElement {
   static get is () {
     return 'mm-map'
@@ -79,6 +85,7 @@ export class MmMap extends LitElement {
     }
 
     return html`
+      <link rel="stylesheet" href="/bundle.css">
       <div class="address-bar-wrapper">
         <slot name="address-bar"></slot>
       </div>
