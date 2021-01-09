@@ -8,11 +8,13 @@ export class MmGeolocation extends LitElement {
 
   static get properties () {
     return {
-      position: window.GeolocationPosition,
       loading: {
         type: Boolean
       },
       failure: {
+        type: Boolean
+      },
+      unsupported: {
         type: Boolean
       }
     }
@@ -38,12 +40,9 @@ export class MmGeolocation extends LitElement {
     `
   }
 
-  handleGeolocationSuccess (position) {
-    console.log(position)
-    this.position = position
-    this.dispatchEvent(new window.CustomEvent('new-position', {
-      detail: { position }
-    }))
+  handleGeolocationAvailable () {
+    this.failure = false
+    this.dispatchEvent(new window.CustomEvent('geolocation-available'))
   }
 
   handleGeolocationFailure () {
@@ -56,15 +55,12 @@ export class MmGeolocation extends LitElement {
       this.unsupported = true
     } else {
       this.loading = true
-      navigator.geolocation.getCurrentPosition(
-        this.handleGeolocationSuccess.bind(this),
-        this.handleGeolocationFailure.bind(this)
-      )
+      this.handleGeolocationAvailable()
     }
   }
 
   render () {
-    if (this.position) {
+    if (this.failure === false & this.loading === false) {
       return nothing
     }
 

@@ -13,7 +13,9 @@ export class MmApp extends LitElement {
 
   static get properties () {
     return {
-      position: { type: window.GeolocationPosition }
+      geolocationAvailable: { type: Boolean },
+      loading: { type: Boolean },
+      failure: { type: Boolean }
     }
   }
 
@@ -62,16 +64,32 @@ export class MmApp extends LitElement {
     `
   }
 
-  handleNewPosition ({ detail: { position } }) {
-    this.position = position
+  handleGeolocationAvailable () {
+    this.geolocationAvailable = true
+  }
+
+  handleLocationFound () {
+    this.loading = false
+  }
+
+  handleLocationError () {
+    this.failure = true
   }
 
   render () {
     return html`
-      <mm-geolocation @new-position=${this.handleNewPosition}></mm-geolocation>
+      <mm-geolocation
+          @geolocation-available=${this.handleGeolocationAvailable}
+          .loading=${this.loading}
+          .failure=${this.failure}
+        ></mm-geolocation>
       <div class="wrapper">
         <div class="map-wrapper">
-          <mm-map .position=${this.position}>
+          <mm-map
+              .geolocationAvailable=${this.geolocationAvailable}
+              @locationfound=${this.handleLocationFound}
+              @locationerror=${this.handleLocationError}
+              >
             <mm-address-bar slot="address-bar"></mm-address-bar>
           </mm-map>
         </div>

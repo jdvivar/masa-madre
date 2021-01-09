@@ -10,8 +10,8 @@
     "build": "ELEVENTY_ENV=production eleventy",
     "prestart": "npm run clean && npm run compile:dev",
     "start": "ELEVENTY_ENV=development concurrently \"eleventy --serve\" \"npm run compile:watch\"",
-    "compile:dev": "esbuild src/js/bundle.js --bundle --outfile=public/bundle.js --sourcemap",
-    "compile:prod": "esbuild src/js/bundle.js --bundle --outfile=public/bundle.js --minify --target=es6",
+    "compile:dev": "esbuild src/js/bundle.js --bundle --outfile=public/bundle.js --sourcemap --loader:.png=dataurl",
+    "compile:prod": "esbuild src/js/bundle.js --bundle --outfile=public/bundle.js --minify --target=es6 --loader:.png=dataurl",
     "compile:watch": "nodemon --watch src --exec \"npm run compile:dev\"",
     "lint": "standard",
     "lint:fix": "standard --fix",
@@ -49,9 +49,9 @@
     }
   },
   "dependencies": {
+    "leaflet": "^1.7.1",
     "lit-element": "^2.4.0",
-    "minireset.css": "github:jdvivar/minireset.css",
-    "ol": "^6.4.3"
+    "minireset.css": "github:jdvivar/minireset.css"
   },
   "standard": {
     "parser": "babel-eslint"
