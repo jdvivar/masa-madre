@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/jdvivar/masa-madre/compare/v0.0.7...v0.0.8) (2021-01-10)
+
+
+### Features
+
+* add marker for user location ([2bcaedb](https://github.com/jdvivar/masa-madre/commit/2bcaedbbe843b0d2910cd4cdc76a075b3714af4a))
+* adding ol styles ([95c5435](https://github.com/jdvivar/masa-madre/commit/95c54351dd27136044da5a8e7422c7a66e6b3385))
+* using Leaflet instead of OpenLayers ([0c38ee2](https://github.com/jdvivar/masa-madre/commit/0c38ee2a668624b9f8722fa20275af4a23545b3a))
+
 ### [0.0.7](https://github.com/jdvivar/masa-madre/compare/v0.0.6...v0.0.7) (2020-12-25)
 
 
