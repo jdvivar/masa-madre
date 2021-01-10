@@ -15,7 +15,8 @@ export class MmApp extends LitElement {
     return {
       geolocationAvailable: { type: Boolean },
       loading: { type: Boolean },
-      failure: { type: Boolean }
+      failure: { type: Boolean },
+      features: { type: Array }
     }
   }
 
@@ -76,6 +77,10 @@ export class MmApp extends LitElement {
     this.failure = true
   }
 
+  handleUpdateList ({ detail }) {
+    this.features = detail
+  }
+
   render () {
     return html`
       <mm-geolocation
@@ -89,12 +94,13 @@ export class MmApp extends LitElement {
               .geolocationAvailable=${this.geolocationAvailable}
               @locationfound=${this.handleLocationFound}
               @locationerror=${this.handleLocationError}
+              @update-list=${this.handleUpdateList}
               >
             <mm-address-bar slot="address-bar"></mm-address-bar>
           </mm-map>
         </div>
         <div class="list-wrapper">
-          <mm-list></mm-list>
+          <mm-list .features=${this.features}></mm-list>
         </div>
       </div>
     `

@@ -4,7 +4,7 @@ import { minireset } from 'minireset.css/minireset.css.lit.js'
 import knn from 'sphere-knn'
 import GEOJSON_DATA from '../../../_data/geo.json'
 
-import { map, tileLayer, Map, marker, divIcon, featureGroup } from 'leaflet/dist/leaflet-src.esm.js'
+import { map, tileLayer, Map, marker, divIcon, featureGroup, LatLngBounds } from 'leaflet/dist/leaflet-src.esm.js'
 import '../mm-marker/mm-marker.js'
 
 // TODO
@@ -78,6 +78,7 @@ export class MmMap extends LitElement {
     this.map.locate({ setView: true })
       .on('locationfound', this.handleLocationEvent.bind(this))
       .on('locationerror', this.handleLocationEvent.bind(this))
+      .on('moveend', this.updateList.bind(this))
   }
 
   addMarkers () {
@@ -85,13 +86,31 @@ export class MmMap extends LitElement {
       marker(feature.geometry.coordinates, {
         icon: divIcon({ html: '<mm-marker type=pin></mm-marker>' })
       })
+        .bindTooltip(`${feature.properties.id}`)
         .addTo(this.map)
     })
 
-    const closestMarkers = knn(GEOJSON_DATA.features)(this.center.lng, this.center.lat, 2)
+    this.fitBounds()
+  }
+
+  fitBounds (n = 2) {
+    const closestFeatures = knn(GEOJSON_DATA.features)(this.center.lng, this.center.lat, n)
       .map(feature => marker(feature.geometry.coordinates))
 
-    this.map.fitBounds(featureGroup(closestMarkers).getBounds())
+    const newBounds = featureGroup(closestFeatures).getBounds()
+    this.map.fitBounds(newBounds)
+    this.updateList(newBounds)
+  }
+
+  updateList (bounds) {
+    if (!(bounds instanceof LatLngBounds)) {
+      bounds = this.map.getBounds()
+    }
+
+    const featuresWithinBounds = GEOJSON_DATA.features.filter(feature => bounds.contains(feature.geometry.coordinates))
+    this.dispatchEvent(new window.CustomEvent('update-list', {
+      detail: featuresWithinBounds
+    }))
   }
 
   handleLocationEvent (e) {
