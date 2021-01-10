@@ -81,15 +81,17 @@ export class MmMap extends LitElement {
   }
 
   addMarkers () {
-    const features = knn(GEOJSON_DATA.features)(this.center.lng, this.center.lat, 6)
-    const markers = features.map(m => {
-      return marker(m.geometry.coordinates, {
+    GEOJSON_DATA.features.forEach(feature => {
+      marker(feature.geometry.coordinates, {
         icon: divIcon({ html: '<mm-marker type=pin></mm-marker>' })
       })
         .addTo(this.map)
     })
 
-    this.map.fitBounds(featureGroup(markers).getBounds())
+    const closestMarkers = knn(GEOJSON_DATA.features)(this.center.lng, this.center.lat, 2)
+      .map(feature => marker(feature.geometry.coordinates))
+
+    this.map.fitBounds(featureGroup(closestMarkers).getBounds())
   }
 
   handleLocationEvent (e) {
