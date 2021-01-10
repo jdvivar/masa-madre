@@ -52,7 +52,8 @@
     "leaflet": "^1.7.1",
     "lit-element": "^2.4.0",
     "minireset.css": "github:jdvivar/minireset.css",
-    "polychrome": "^4.1.2"
+    "polychrome": "^4.1.2",
+    "sphere-knn": "^1.4.0"
   },
   "standard": {
     "parser": "babel-eslint"

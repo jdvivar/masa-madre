@@ -1,8 +1,10 @@
 import { LitElement, html, css } from 'lit-element'
 import { nothing } from 'lit-html'
 import { minireset } from 'minireset.css/minireset.css.lit.js'
+import knn from 'sphere-knn'
+import GEOJSON_DATA from '../../../_data/geo.json'
 
-import { map, tileLayer, Map, marker, divIcon } from 'leaflet/dist/leaflet-src.esm.js'
+import { map, tileLayer, Map, marker, divIcon, featureGroup } from 'leaflet/dist/leaflet-src.esm.js'
 import '../mm-marker/mm-marker.js'
 
 // TODO
@@ -23,6 +25,9 @@ export class MmMap extends LitElement {
       },
       map: {
         type: Map
+      },
+      center: {
+        type: Object
       }
     }
   }
@@ -75,10 +80,23 @@ export class MmMap extends LitElement {
       .on('locationerror', this.handleLocationEvent.bind(this))
   }
 
+  addMarkers () {
+    const features = knn(GEOJSON_DATA.features)(this.center.lng, this.center.lat, 6)
+    const markers = features.map(m => {
+      return marker(m.geometry.coordinates, {
+        icon: divIcon({ html: '<mm-marker type=pin></mm-marker>' })
+      })
+        .addTo(this.map)
+    })
+
+    this.map.fitBounds(featureGroup(markers).getBounds())
+  }
+
   handleLocationEvent (e) {
     if (e.type === 'locationfound') {
-      marker(e.latlng, {
-        icon: divIcon({ html: '<mm-marker me></mm-marker>' })
+      this.center = e.latlng
+      marker(this.center, {
+        icon: divIcon({ html: '<mm-marker type=me></mm-marker>' })
       })
         .bindTooltip('I ❤ Masa Madre', {
           direction: 'top',
@@ -86,6 +104,8 @@ export class MmMap extends LitElement {
         })
         .addTo(this.map)
         .openTooltip()
+
+      this.addMarkers()
     }
     this.dispatchEvent(new window.CustomEvent(e.type))
   }

@@ -8,7 +8,7 @@ export class MmMarker extends LitElement {
 
   static get properties () {
     return {
-      me: { type: Boolean }
+      type: { type: String }
     }
   }
 
@@ -22,13 +22,21 @@ export class MmMarker extends LitElement {
         box-shadow: 0 0 0 5px rgba(255,0,0,0.1);
         border: 1px solid white;
       }
+
+      .pin {
+        height: 10px;
+        width: 10px;
+        background: #00F;
+        border-radius: 100%;
+        border: 1px solid white;
+      }
     `
   }
 
   render () {
-    if (this.me) {
+    if (this.type) {
       return html`
-        <div class=me></div>
+        <div class=${this.type}></div>
       `
     }
 
