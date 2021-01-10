@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit-element'
 import { nothing } from 'lit-html'
 import { minireset } from 'minireset.css/minireset.css.lit.js'
 
-import { map, tileLayer } from 'leaflet/dist/leaflet-src.esm.js'
+import { map, tileLayer, Map, marker, divIcon } from 'leaflet/dist/leaflet-src.esm.js'
+import '../mm-marker/mm-marker.js'
 
 // TODO
 // Still lacking support for css-in-js
@@ -19,6 +20,9 @@ export class MmMap extends LitElement {
     return {
       geolocationAvailable: {
         type: Boolean
+      },
+      map: {
+        type: Map
       }
     }
   }
@@ -50,6 +54,11 @@ export class MmMap extends LitElement {
         width: 100%;
         object-fit: cover;
       }
+
+      .leaflet-div-icon {
+        background: none;
+        border: none;
+      }
     `
   }
 
@@ -59,14 +68,25 @@ export class MmMap extends LitElement {
       subdomains: 'abcd',
       maxZoom: 19
     })
-    const myMap = map(target, { layers: [baseLayer] })
+    this.map = map(target, { layers: [baseLayer] })
 
-    myMap.locate({ setView: true })
+    this.map.locate({ setView: true })
       .on('locationfound', this.handleLocationEvent.bind(this))
       .on('locationerror', this.handleLocationEvent.bind(this))
   }
 
   handleLocationEvent (e) {
+    if (e.type === 'locationfound') {
+      marker(e.latlng, {
+        icon: divIcon({ html: '<mm-marker me></mm-marker>' })
+      })
+        .bindTooltip('I ❤ Masa Madre', {
+          direction: 'top',
+          offset: [0, -20]
+        })
+        .addTo(this.map)
+        .openTooltip()
+    }
     this.dispatchEvent(new window.CustomEvent(e.type))
   }
 

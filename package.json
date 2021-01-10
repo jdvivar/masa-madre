@@ -51,7 +51,8 @@
   "dependencies": {
     "leaflet": "^1.7.1",
     "lit-element": "^2.4.0",
-    "minireset.css": "github:jdvivar/minireset.css"
+    "minireset.css": "github:jdvivar/minireset.css",
+    "polychrome": "^4.1.2"
   },
   "standard": {
     "parser": "babel-eslint"
