@@ -88,12 +88,12 @@ export class MmMap extends LitElement {
       marker(this.center, {
         icon: divIcon({ html: '<mm-marker type=me></mm-marker>' })
       })
-        .bindTooltip('I ❤ Masa Madre', {
-          direction: 'top',
-          offset: [0, -20]
-        })
+        // .bindTooltip('I ❤ Masa Madre', {
+        //   direction: 'top',
+        //   offset: [0, -20]
+        // })
         .addTo(this.map)
-        .openTooltip()
+        // .openTooltip()
 
       this.addMarkers()
     }

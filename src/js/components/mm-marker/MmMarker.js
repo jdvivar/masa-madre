@@ -21,23 +21,40 @@ export class MmMarker extends LitElement {
         border-radius: 100%;
         box-shadow: 0 0 0 5px rgba(255,0,0,0.1);
         border: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .pin {
-        height: 10px;
-        width: 10px;
-        background: #00F;
-        border-radius: 100%;
-        border: 1px solid white;
+        height: 2px;
+        width: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+    `
+  }
+
+  renderMe () {
+    return html`
+      <div class=me></div>
+    `
+  }
+
+  renderPin () {
+    return html`
+      <div class=pin>
+        <span>🥖</span>
+      </div>
     `
   }
 
   render () {
     if (this.type) {
-      return html`
-        <div class=${this.type}></div>
-      `
+      return this.type === 'me'
+        ? this.renderMe()
+        : this.renderPin()
     }
 
     return nothing
