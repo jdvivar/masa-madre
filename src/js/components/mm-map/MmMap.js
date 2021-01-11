@@ -1,8 +1,8 @@
-import { LitElement, html, css } from 'lit-element'
+import { LitElement, html } from 'lit-element'
 import { nothing } from 'lit-html'
-import { minireset } from 'minireset.css/minireset.css.lit.js'
 import knn from 'sphere-knn'
 import GEOJSON_DATA from '../../../_data/geo.json'
+import { styles } from './MmMap.styles.js'
 
 import { map, tileLayer, Map, marker, divIcon, featureGroup, LatLngBounds } from 'leaflet/dist/leaflet-src.esm.js'
 import '../mm-marker/mm-marker.js'
@@ -33,38 +33,7 @@ export class MmMap extends LitElement {
   }
 
   static get styles () {
-    return css`
-      ${minireset}
-
-      :host {
-        position: relative;
-        display: block;
-        height: 100%;
-      }
-
-      .address-bar-wrapper {
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-
-      .map-wrapper {
-        height: 100%;
-        width: 100%;
-        background: lightgrey;
-      }
-
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-
-      .leaflet-div-icon {
-        background: none;
-        border: none;
-      }
-    `
+    return styles
   }
 
   setupMap (target) {
