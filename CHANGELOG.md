@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/jdvivar/masa-madre/compare/v0.0.12...v0.0.13) (2021-01-11)
+
+
+### Features
+
+* update markers style ([d9837c5](https://github.com/jdvivar/masa-madre/commit/d9837c54245af3140d77963e5cbefad3997f7e8f))
+
 ### [0.0.12](https://github.com/jdvivar/masa-madre/compare/v0.0.11...v0.0.12) (2021-01-11)
 
 
