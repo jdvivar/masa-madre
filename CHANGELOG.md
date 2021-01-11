@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/jdvivar/masa-madre/compare/v0.0.11...v0.0.12) (2021-01-11)
+
+
+### Bug Fixes
+
+* styles on iOS Safari ([d0829d3](https://github.com/jdvivar/masa-madre/commit/d0829d339cc324c1adc1ea739ae433d526f4ec34))
+
 ### [0.0.11](https://github.com/jdvivar/masa-madre/compare/v0.0.10...v0.0.11) (2021-01-10)
 
 
