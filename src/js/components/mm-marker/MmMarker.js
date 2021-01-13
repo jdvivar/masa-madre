@@ -1,5 +1,10 @@
 import { LitElement, html, css } from 'lit-element'
 import { nothing } from 'lit-html'
+import { unsafeSVG } from 'lit-html/directives/unsafe-svg'
+
+import { colors } from '../../utils/values.styles.js'
+import { polychrome } from '../../utils/polychrome.js'
+import pin from '../../../images/pin.svg'
 
 export class MmMarker extends LitElement {
   static get is () {
@@ -14,24 +19,32 @@ export class MmMarker extends LitElement {
 
   static get styles () {
     return css`
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 ${polychrome(colors.markerBlue, 'setAlpha', 40)};
+        }
+        100% {
+          box-shadow: 0 0 0 10px ${polychrome(colors.markerBlue, 'setAlpha', 0)};
+        }
+      }
+      
       .me {
         height: 10px;
         width: 10px;
-        background: #F00;
+        background: ${colors.markerBlue};
         border-radius: 100%;
-        box-shadow: 0 0 0 5px rgba(255,0,0,0.1);
-        border: 1px solid white;
+        animation: pulse 2s infinite;
+        border: 2px solid white;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
       .pin {
-        height: 2px;
-        width: 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 20px;
+        position: relative;
+        right: 4px;
+        bottom: 13px;
       }
     `
   }
@@ -45,7 +58,7 @@ export class MmMarker extends LitElement {
   renderPin () {
     return html`
       <div class=pin>
-        <span>🥖</span>
+        ${unsafeSVG(pin)}
       </div>
     `
   }
