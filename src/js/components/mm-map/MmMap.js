@@ -13,6 +13,8 @@ import '../mm-marker/mm-marker.js'
 // For now this will just output a css file together with the bundle
 // with name bundle.css
 import 'leaflet/dist/leaflet.css'
+
+const FIT_BOUNDS_MARKERS = 2
 export class MmMap extends LitElement {
   static get is () {
     return 'mm-map'
@@ -53,16 +55,16 @@ export class MmMap extends LitElement {
   addMarkers () {
     GEOJSON_DATA.features.forEach(feature => {
       marker(feature.geometry.coordinates, {
-        icon: divIcon({ html: '<mm-marker type=pin></mm-marker>' })
+        icon: divIcon({ html: `<mm-marker type=pin marker-id=${feature.properties.id}></mm-marker>` })
       })
-        .bindTooltip(`${feature.properties.id}`)
+        // .bindTooltip(`${feature.properties.id}`)
         .addTo(this.map)
     })
 
     this.fitBounds()
   }
 
-  fitBounds (n = 2) {
+  fitBounds (n = FIT_BOUNDS_MARKERS) {
     const closestFeatures = knn(GEOJSON_DATA.features)(this.center.lng, this.center.lat, n)
       .map(feature => marker(feature.geometry.coordinates))
 
@@ -76,10 +78,13 @@ export class MmMap extends LitElement {
       bounds = this.map.getBounds()
     }
 
-    const featuresWithinBounds = GEOJSON_DATA.features.filter(feature => bounds.contains(feature.geometry.coordinates))
-    this.dispatchEvent(new window.CustomEvent('update-list', {
-      detail: featuresWithinBounds
-    }))
+    if (this.center) {
+      const featuresWithinBounds = GEOJSON_DATA.features.filter(feature => bounds.contains(feature.geometry.coordinates))
+      const orderedFeaturesWithinBounds = knn(featuresWithinBounds)(this.center.lng, this.center.lat, 100)
+      this.dispatchEvent(new window.CustomEvent('update-list', {
+        detail: orderedFeaturesWithinBounds
+      }))
+    }
   }
 
   handleLocationEvent (e) {

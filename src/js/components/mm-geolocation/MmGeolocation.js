@@ -59,33 +59,28 @@ export class MmGeolocation extends LitElement {
     }
   }
 
-  render () {
-    if (this.failure === false & this.loading === false) {
-      return nothing
-    }
-
-    if (this.unsupported) {
-      return html`
+  renderUnsupported () {
+    return html`
       <div class="background">
         <div class="dialog">
           Tu dispositivo o navegador no soporta la geolocalización. Lo siento, no puedes usar esta app.
         </div>
       </div>
     `
-    }
+  }
 
-    if (this.loading) {
-      return html`
+  renderLoading () {
+    return html`
       <div class="background">
         <div class="dialog">
           Loading ...
         </div>
       </div>
     `
-    }
+  }
 
-    if (this.failure) {
-      return html`
+  renderFailure () {
+    return html`
       <div class="background">
         <div class="dialog">
           Por favor, asegúrate que la página tiene permiso para geolocalizarte y recarga la página.
@@ -95,6 +90,23 @@ export class MmGeolocation extends LitElement {
         </div>
       </div>
     `
+  }
+
+  render () {
+    if (this.failure === false & this.loading === false) {
+      return nothing
+    }
+
+    if (this.unsupported) {
+      this.renderUnsupported()
+    }
+
+    if (this.loading) {
+      this.renderLoading()
+    }
+
+    if (this.failure) {
+      this.renderFailure()
     }
 
     return html`

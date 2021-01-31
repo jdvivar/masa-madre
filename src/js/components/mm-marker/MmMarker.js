@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element'
 import { nothing } from 'lit-html'
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg'
+import { classMap } from 'lit-html/directives/class-map'
 
 import { colors } from '../../utils/values.styles.js'
 import { polychrome } from '../../utils/polychrome.js'
@@ -13,7 +14,8 @@ export class MmMarker extends LitElement {
 
   static get properties () {
     return {
-      type: { type: String }
+      type: { type: String },
+      hover: { type: Boolean }
     }
   }
 
@@ -45,8 +47,21 @@ export class MmMarker extends LitElement {
         position: relative;
         right: 4px;
         bottom: 13px;
+        transition: all 0.3s;
+      }
+
+      .pin.hover {
+        transform: scale(1.5);
       }
     `
+  }
+
+  handleMouseEnter () {
+    this.hover = true
+  }
+
+  handleMouseLeave () {
+    this.hover = false
   }
 
   renderMe () {
@@ -56,8 +71,16 @@ export class MmMarker extends LitElement {
   }
 
   renderPin () {
+    const classes = {
+      pin: true,
+      hover: this.hover
+    }
+
     return html`
-      <div class=pin>
+      <div
+          @mouseenter=${this.handleMouseEnter}
+          @mouseleave=${this.handleMouseLeave}
+          class=${classMap(classes)}>
         ${unsafeSVG(pin)}
       </div>
     `
